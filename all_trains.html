@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="all_trains.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>All booking Options</title>
+  </head>
+  <body>
+      <div class="container">
+        <div class="navbar">
+            <h2 class="Home">
+              <a href="#">RailGoods</a> 
+            </h2>
+            <div class="buttons">
+              <a href="#">Check PNR Status</a>
+              <a href="#">Login</a>
+              <button class="button">Sign Up</button>
+            </div>
+          </div>
+        <div class="search-bar">
+            
+            <form action="/search" method= "POST" class="row">
+                    <div class="col">
+                    <label for="source" aria-placeholder="Source">From</label>
+                    <select name="source-station" id="source">
+                        <option value= "station1">Station1</option>
+                        <option value= "station1">Station2</option>
+                    </select>
+                    </div>
+                    <div class="col">
+                    <label for="destination" aria-placeholder="Destination">To</label>
+                    <select name="destination-station">
+                        <option value="station3">Station3</option>
+                        <option value="station4">Station4</option>
+                    </select>
+                    </div>
+                    <div class="col">
+                        <label for="date">Date</label>
+                        <input type="date" id="travel-date" name="travel-date">
+                    </div>
+            </form>
+        
+        </div>
+        <div class="all_trains col row">
+            <div class="row">
+                <div class="col">side tile here</div>
+                <div class="col">all train tiles here</div>
+            </div>
+        </div>
+      </div>
+  </body>
+  </html>
