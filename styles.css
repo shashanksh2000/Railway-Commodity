@@ -24,7 +24,8 @@ a {
 .navbar button {
     border: none;
     width: fit-content;
-    padding: 7px;
+    padding: 8px;
+    padding-right: 1px;
     margin: 10px 0px;
     color: white;
     background-color: #2B8F8F;
