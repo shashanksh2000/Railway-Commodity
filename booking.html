@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="booking.css" />
+    <title>Confirm</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <h2 class="Home">
+          <a href="/index.html">RailGoods</a>
+        </h2>
+      </div>
+
+      <div class="confirm">
+        <h2>Confirm Booking</h2>
+        <form action="/login" method="POST">
+          <div class="row">
+            <div class="col">Train Name: <span>ABC</span></div>
+            <div class="col">Train ID: <span>1234</span></div>
+          </div>
+          <div class="col">Date: <span>18-04-2021</span></div>
+          <div class="col">
+            <label for="amount">Amount: </label>
+            <input type="text" name="amount" id="amount" placeholder="in units" required/>
+          </div>
+          <div class="col">Available Space: <span>34</span></div>
+          <button class="cancel">Go Back</button><button>Book Now</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
