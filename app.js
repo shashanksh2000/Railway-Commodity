@@ -2,6 +2,8 @@ const { request, response } = require('express');
 const express = require('express');
 const app = express();
 const firebase = require('firebase')
+var user= null;
+var results = new Array();
 var firebaseConfig = {
     apiKey: "AIzaSyBujDlmk_AaKWqMnMdPZoMOMgN3JatH2Go",
     authDomain: "railgoods.firebaseapp.com",
@@ -19,11 +21,11 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.get('/', (request, response) =>{
     if(user != null){
-        response.render('index');
+        response.render('index', {loggedInUser: user});
         console.log('login successful');
     }
     else {
-        response.render('index');
+        response.render('index', {loggedInUser: ""});
     }
 });
 
@@ -35,20 +37,16 @@ app.get('/login', (req, res)=>{
     res.render('login');
 });
 
-app.post('/alltrains', (req, res)=>{
-    res.redirect('/alltrains');
-});
 
 app.get('/alltrains', (req, res)=>{
-    res.render('alltrains');
+    res.render('alltrains', {allresults : results});
 })
 app.listen(4000, ()=>{
     console.log("server is running");
 });
 
-var user= null;
 app.post('/login', async(req, res) =>{
-    let loginUsername = req.body.username;
+    let loginUsername = req.body.loginUsername;
     let loginPassword = req.body.loginPassword;
     //get data with db, and match with login
     let userRef = db.collection('users');
@@ -79,4 +77,30 @@ app.post('/signup', (req, res)=>{
         email: signUpEmail
     });
     res.redirect('/');
+})
+
+app.post('/search', async(req, res) =>{
+    let searchSource= req.body.sourcestation;
+    let searchDestination = req.body.destinationstation;
+    //var traveldate = new Date(req.body.traveldate).toISOString()
+    let traintype = req.body.type;
+    //console.log(traveldate);
+    //let today = new Date().toISOString()
+    // console.log(today)
+    // searching for these in the database. 
+    let alltrainsRef= db.collection('trains/trains/trainID');
+    let allTrains = await alltrainsRef.get();
+    results.length = 0;
+    for(const tdoc of allTrains.docs)
+    {
+        var data= tdoc.data();
+        if(data.source == searchSource && data.destination == searchDestination  )
+        {   
+            var details = {  name: data.name ,service: data.service, source: data.source, destination : data.destination, cost : data.costperunit, departure : data.time, trainid : data.id, capacity: data.capacity };
+            //console.log(details);
+            results.push(details);
+
+        }
+    };
+    res.redirect('/alltrains');
 })
