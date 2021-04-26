@@ -9,8 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
     <title>All booking Options</title>
   </head>
   <body>
@@ -26,7 +25,6 @@
             </div>
           </div>
         <div class="search-bar">
-            
             <form action="/search" method= "POST" class="row">
                     <div class="col">
                       <label for="source">From</label>
@@ -49,12 +47,16 @@
                       <label for="date" class="date">Date</label>
                       <input class = "indexInput" type="date" id="traveldate" name="traveldate">
                     </div>
+                    <div>
+                      <button>Search</button>
+                    </div>
             </form>
-        
         </div>
-        <div class="all_trains col row">
-            <div class="row">
-                <div class="col">Available Trains
+        <div>
+          <h2>Available Trains</h2>
+        </div>
+        <div class="all_trains col">
+            <div class="col">
                   <% for (var i=0; i< allresults.length ; i++) { %>
                   <div class= "col">
                     <div class ="train-upper">
@@ -75,12 +77,8 @@
                       </div>
                     </div>
                   </div>
+                  <hr>
                   <% } %>
-                  <!-- <% for (var i=0; i< allresults.length ; i++) { %>
-                    <div><%= allresults[i].service %></div>
-                    <% } %> -->
-                    <!-- <% console.log(allresults) %> -->
-                </div>
             </div>
         </div>
       </div>

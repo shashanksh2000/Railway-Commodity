@@ -1,6 +1,6 @@
 .search-bar{
-    min-width: 500px;
-    width: 97%;
+    min-width: 200px;
+    width: 80%;
     margin: 20px auto;
     color: white;
     background: rgba(255, 255, 255, 0.11);
@@ -10,18 +10,36 @@
     justify-content: space-around;
 }
 
-.all_trains{
-    width: 97%;
-    min-width: none;
-    margin: 20px auto;
-    color: white;
-    background: rgba(255, 255, 255, 0.11);
-    padding: 20px ;
-    justify-content: space-around;
-    display: flex;
-    flex-direction: vertical;
+.search-bar .row {
+    align-items: center;
+}
+
+.search-bar .row .col {
+    width: 30%
 }
 
 .date {
-    padding-bottom: 4px;
+    padding: 0;
+}
+
+.all_trains{
+    width: 80%;
+    margin: 20px auto;
+    color: white;
+    background: rgba(255, 255, 255, 0.11);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    width: 100%;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+hr {
+    margin: 10px 0;
 }
