@@ -89,21 +89,32 @@ app.post('/signup', (req, res)=>{
 app.post('/search', async(req, res) =>{
     let searchSource= req.body.sourcestation;
     let searchDestination = req.body.destinationstation;
-    //var traveldate = new Date(req.body.traveldate).toISOString()
+    var traveldate = new Date(req.body.traveldate).toISOString().slice(0, 10);
     let traintype = req.body.type;
-    //console.log(traveldate);
+    console.log(traveldate);
     //let today = new Date().toISOString()
     // console.log(today)
     // searching for these in the database. 
     let alltrainsRef= db.collection('trains/trains/trainID');
     let allTrains = await alltrainsRef.get();
+    let bookingsRef = db.collection('orders');
+    let allbookings = await bookingsRef.get();  
+    //checking available space of that train on a particular date
     results.length = 0;
     for(const tdoc of allTrains.docs)
     {
         var data= tdoc.data();
         if(data.source == searchSource && data.destination == searchDestination  )
         {   
-            var details = {  name: data.name ,service: data.service, source: data.source, destination : data.destination, cost : data.costperunit, departure : data.time, trainid : data.id, capacity: data.capacity };
+            var remaining = data.capacity;
+            for(const book of allbookings.docs)
+            {
+                if(traveldate == book.data().date && data.id == book.data().trainid)
+                {
+                    remaining = remaining - book.data().amountbooked;
+                }
+            }
+            var details = {  name: data.name ,service: data.service, source: data.source, destination : data.destination, cost : data.costperunit, departure : data.time, trainid : data.id, capacity: data.capacity, capacityleft: remaining };
             //console.log(details);
             results.push(details);
 
