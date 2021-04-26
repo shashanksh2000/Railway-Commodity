@@ -29,22 +29,25 @@
             
             <form action="/search" method= "POST" class="row">
                     <div class="col">
-                    <label for="source" aria-placeholder="Source">From</label>
-                    <select name="source-station" id="source">
-                        <option value= "station1">Station1</option>
-                        <option value= "station1">Station2</option>
-                    </select>
+                      <label for="source">From</label>
+                      <select name="sourcestation" id="source">
+                        <option value="NDLH">NDLH</option>
+                        <option value="CDG">CDG</option>
+                        <option value="UMB">UMB</option>
+                      </select>
                     </div>
                     <div class="col">
-                    <label for="destination" aria-placeholder="Destination">To</label>
-                    <select name="destination-station">
-                        <option value="station3">Station3</option>
-                        <option value="station4">Station4</option>
-                    </select>
+                      <label for="destination">To</label>
+                      <select name="destinationstation" id="destination">
+                        <option value="LKO">LKO</option>
+                        <option value="BSR">BSR</option>
+                        <option value="GHY">GHY</option>
+                        <option value="SBC">SBC</option>
+                      </select>
                     </div>
                     <div class="col">
-                        <label for="date">Date</label>
-                        <input type="date" id="travel-date" name="travel-date">
+                      <label for="date">Date</label>
+                      <input class = "indexInput" type="date" id="traveldate" name="traveldate">
                     </div>
             </form>
         
