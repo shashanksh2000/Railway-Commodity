@@ -147,3 +147,17 @@ option {
     color: white;
     border-radius: 5px;
 }
+.search-tile{
+    border : 2px solid black;
+    height: 30px;
+    width : 70%;
+    
+}
+.train-upper{
+    display: flex;
+    justify-content: space-between;
+}
+.train-lower{
+    display: flex;
+    justify-content: space-between;
+}

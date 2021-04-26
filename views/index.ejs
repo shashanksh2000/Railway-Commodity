@@ -18,12 +18,13 @@
         <h2 class="Home">
           <a href="/">RailGoods</a> 
         </h2>
-        
+        <h5>Hello <%= loggedInUser.username %> </h5>
         <div class="buttons">
           <a href="#">Check PNR Status</a>
           <a href="/login">Login</a>
           <button class="buttons"><a href="/signup">SignUp</a></button>
         </div>
+        
       </div>
       <div class="content">
         Manage your <strong>commodities</strong> efficiently
@@ -31,20 +32,20 @@
 
       <div class="search-form">
         <h2>BOOK TRAIN</h2>
-        <form action="/alltrains" method="POST">
+        <form action="/search" method="POST">
           <div class="row">
             <div class="col">
               <label for="source">From</label>
-              <select name="source-station" id="source">
-                <option value="station1">St1</option>
+              <select name="sourcestation" id="source">
+                <option value="NDLH">NDLH</option>
                 <option value="station2">St2</option>
                 <option value="station3">St3</option>
               </select>
             </div>
             <div class="col">
               <label for="destination">To</label>
-              <select name="destination-station" id="destination">
-                <option value="station1">St1</option>
+              <select name="destinationstation" id="destination">
+                <option value="LKO">LKO</option>
                 <option value="station2">St2</option>
                 <option value="station3">St3</option>
               </select>
@@ -52,7 +53,7 @@
           </div>
           <div class="col">
             <label for="date">Date</label>
-            <input type="date" id="travel-date" name="travel-date">
+            <input type="date" id="traveldate" name="traveldate">
         </div>
           <div class="col">
             <label for="source">Type of train</label>
