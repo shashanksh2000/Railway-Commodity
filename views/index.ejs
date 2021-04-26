@@ -18,11 +18,19 @@
         <h2 class="Home">
           <a href="/">RailGoods</a> 
         </h2>
+        <% if(loggedInUser){ %>
         <h5>Hello <%= loggedInUser.username %> </h5>
+        <% } %>
         <div class="buttons">
-          <a href="#">Check PNR Status</a>
+          <!-- <a href="#">Check PNR Status</a> -->
+          <%if(!loggedInUser){ %>
           <a href="/login">Login</a>
           <button class="buttons"><a href="/signup">SignUp</a></button>
+          <% }%>
+          <% if(loggedInUser){%>
+          <button class="buttons"> <a href="/profile">My Profile</a></button>
+          <a href="/login">Logout</a>
+          <% }%>
         </div>
         
       </div>

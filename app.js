@@ -22,10 +22,10 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', (request, response) =>{
     if(user != null){
         response.render('index', {loggedInUser: user});
-        console.log('login successful');
+        // console.log('login successful');
     }
     else {
-        response.render('index', {loggedInUser: ""});
+        response.render('index', {loggedInUser: user});
     }
 });
 
@@ -36,7 +36,10 @@ app.get('/signup', (req, res)=>{
 app.get('/login', (req, res)=>{
     res.render('login');
 });
-
+app.get('/logout', (req,res)=>{
+    user = null;
+    res.redirect('/');
+})
 
 app.get('/alltrains', (req, res)=>{
     res.render('alltrains', {allresults : results});

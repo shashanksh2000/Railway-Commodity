@@ -13,6 +13,7 @@ a {
 
 .buttons a{
     margin-right: 10px;
+    border-radius: 3px;
 }
 
 .navbar {
