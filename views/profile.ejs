@@ -4,18 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="profile.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Login</title>
+    <title>Profile</title>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
             <h2 class="Home">
-              <a href="/"> <strong>RailGoods</strong></a>
+                <a href="/">RailGoods</a>
             </h2>
+        </div>
+        <div class="profile">
+            <div class="row">
+                <p class="col">Username: Shashank</p>
+                <p class="col">Email-id: abc@xyz.com</p>
+            </div>
+            <hr>
+            <h2>Your orders: </h2>
+
+            <div class="order">
+                <div class="details">
+                    <div class="row">
+                        <strong class="col">Z-Express (Express)</strong>
+                        <p class="col">Amount Booked: 30 units</p>
+                    </div>
+                    <div class="row">
+                        <p class="col">27-04-2021 18:00</p>
+                        <p class="col">Total paid: Rs. 100</p>
+                    </div>
+                </div>
+                <button>Cancel Order</button>
+            </div>
+
+            <div class="order">
+                <div class="details">
+                    <div class="row">
+                        <strong class="col">T-Normal (Normal)</strong>
+                        <p class="col">Amount Booked: 30 units</p>
+                    </div>
+                    <div class="row">
+                        <p class="col">27-04-2021 14:00</p>
+                        <p class="col">Total paid: Rs. 50</p>
+                    </div>
+                </div>
+                <button>Cancel Order</button>
+            </div>
+            <hr>
         </div>
     </div>
 </body>

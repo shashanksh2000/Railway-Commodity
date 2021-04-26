@@ -1,0 +1,68 @@
+* {
+    /*border: 1px solid; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+.container {
+    background: url(bgtraindark.jpg) no-repeat center/ cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.profile {
+    width: 60%;
+    text-align: center;
+    margin: 70px auto;
+    color: white;
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.profile > h2 {
+    margin: 20px auto;
+}
+
+.order {
+    background-color: rgba(255, 255, 255, 0.16);
+    width: 90%;
+    height: 80px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.details {
+    width: 70%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    margin-top: 17px;
+}
+
+button {
+    border: none;
+    width: fit-content;
+    margin: 17px;
+    padding: 10px 15px;
+    background-color: #DC3545;
+    color: white;
+    border-radius: 5px;
+}
+
+.profile > .row > .col {
+    margin-bottom: 17px;
+}
+
+hr {
+    width: 90%;
+    margin: 0px auto;
+}
