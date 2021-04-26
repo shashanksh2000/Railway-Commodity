@@ -22,6 +22,5 @@
     "firebase": "^8.4.1",
     "firebase-tools": "^9.10.0",
     "nodemon": "^2.0.7"
-  },
-  "devDependencies": {}
+  }
 }
