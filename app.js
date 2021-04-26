@@ -44,6 +44,10 @@ app.get('/logout', (req,res)=>{
 app.get('/alltrains', (req, res)=>{
     res.render('alltrains', {allresults : results});
 })
+
+app.get('/profile', (req, res)=>{
+    res.render('profile');
+})
 app.listen(4000, ()=>{
     console.log("server is running");
 });
