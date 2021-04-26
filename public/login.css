@@ -1,5 +1,5 @@
 * {
-    border: 1px solid #1E2833;
+    /* border: 1px solid #1E2833; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,11 +16,32 @@ body {
     height: 100vh;
 }
 
-.col a {
+.navbar {
+    height: 50px;
+    color: white;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0px 20px;
+}
+
+.navbar button {
+    border: none;
+    width: fit-content;
+    padding: 8px;
+    padding-right: 1px;
+    margin: 10px 0px;
+    color: white;
+    background-color: #2B8F8F;
+}
+
+.signup a {
     text-decoration: none;
     color: #6F7A85;
     font-size: 12px;
     padding: 5px;
+
 }
 
 h2 {
@@ -32,7 +53,7 @@ h2 {
     display: flex;
     flex-direction: column;
     min-width: 300px;
-    width: 20%;
+    width: fit-content;
     height: 280px;
     background-color: #1E2833;
     color: #2B8F8F;
@@ -48,12 +69,12 @@ input {
     border-bottom: 1px solid #434A52;
     padding: 5px 10px;
     margin-bottom: 10px;
+    width: 200px;
 }
 
 .row {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .row button {
@@ -67,5 +88,5 @@ input {
 }
 
 .col {
-    width: fit-content;
+    width: 100%;
 }
