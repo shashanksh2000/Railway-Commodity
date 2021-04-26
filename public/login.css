@@ -22,8 +22,7 @@ body {
     font-weight: lighter;
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 
 a {
@@ -38,22 +37,23 @@ a {
     padding: 5px;
 }
 
-h2 {
-    padding: 10px;
-    margin: 20px;
+.signup a:hover {
+    color: #fff;
 }
 
 .login {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-    width: fit-content;
-    height: 280px;
+    width: 300px;
+    height: fit-content;
     background-color: #1E2833;
     color: #2B8F8F;
-    margin: 0px auto;
-    align-items: center;
     margin: 150px auto;
+    padding: 20px;
+}
+
+.login * {
+    margin: 5px 0;
 }
 
 input {
@@ -62,25 +62,24 @@ input {
     color: white;
     border-bottom: 1px solid #434A52;
     padding: 5px 10px;
-    margin-bottom: 10px;
-    width: 200px;
+    margin: 0 auto;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid #2B8F8F;
 }
 
 .row {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .row button {
     border: none;
     width: fit-content;
     padding: 10px 15px;
-    margin: 15px 15px 20px 0px;
     background-color: #2B8F8F;
     color: white;
     border-radius: 5px;
-}
-
-.col {
-    width: 100%;
 }
