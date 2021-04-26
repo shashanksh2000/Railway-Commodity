@@ -26,14 +26,9 @@ body {
     padding: 0px 20px;
 }
 
-.navbar button {
-    border: none;
-    width: fit-content;
-    padding: 8px;
-    padding-right: 1px;
-    margin: 10px 0px;
+a {
+    text-decoration: none;
     color: white;
-    background-color: #2B8F8F;
 }
 
 .signup a {
@@ -41,7 +36,6 @@ body {
     color: #6F7A85;
     font-size: 12px;
     padding: 5px;
-
 }
 
 h2 {
