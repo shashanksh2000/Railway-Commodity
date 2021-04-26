@@ -38,7 +38,7 @@ app.get('/login', (req, res)=>{
 });
 app.get('/logout', (req,res)=>{
     user = null;
-    res.redirect('/');
+    res.render('index', {loggedInUser: user});
 })
 
 app.get('/alltrains', (req, res)=>{
