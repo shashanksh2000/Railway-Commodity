@@ -44,6 +44,7 @@ h2 {
 input {
     border: none;
     background: none;
+    color: white;
     border-bottom: 1px solid #434A52;
     padding: 5px 10px;
     margin-bottom: 10px;
