@@ -159,3 +159,13 @@ option {
     display: flex;
     justify-content: space-between;
 }
+.search-bar button{
+    border: none;
+    width: fit-content;
+    padding: 10px 15px;
+    margin: 20px 15px 10px 10px;
+    background-color: #2B8F8F;
+    color: white;
+    border-radius: 5px;
+    height : 45px;
+}

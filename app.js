@@ -91,7 +91,7 @@ app.post('/search', async(req, res) =>{
     let searchDestination = req.body.destinationstation;
     var traveldate = new Date(req.body.traveldate).toISOString().slice(0, 10);
     let traintype = req.body.type;
-    console.log(traveldate);
+    // console.log(traveldate);
     //let today = new Date().toISOString()
     // console.log(today)
     // searching for these in the database. 
