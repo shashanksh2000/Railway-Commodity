@@ -21,27 +21,27 @@
         </div>
         <div class="profile">
             <div class="row">
-                <p class="col">Username: Shashank</p>
-                <p class="col">Email-id: abc@xyz.com</p>
+                <p class="col">Username: <%= loggedInUser.username%></p>
+                <p class="col">Email: <%= loggedInUser.email%></p>
             </div>
             <hr>
             <h2>Your orders: </h2>
-
+            <% for ( var i=0; i<orders.length; i++) { %>
             <div class="order">
                 <div class="details">
                     <div class="row">
-                        <strong class="col">Z-Express (Express)</strong>
-                        <p class="col">Amount Booked: 30 units</p>
+                        <strong class="col"><%=orders[i].trainname %> (Express)</strong>
+                        <p class="col">Amount Booked: <%=orders[i].amtbooked%></p>
                     </div>
                     <div class="row">
-                        <p class="col">27-04-2021 18:00</p>
-                        <p class="col">Total paid: Rs. 100</p>
+                        <p class="col"><%=orders[i].date%> <%= orders[i].time%></p>
+                        <p class="col">Total paid: Rs. <%= orders[i].netcost%></p>
                     </div>
                 </div>
                 <button>Cancel Order</button>
             </div>
-
-            <div class="order">
+            <%}%>
+            <!-- <div class="order">
                 <div class="details">
                     <div class="row">
                         <strong class="col">T-Normal (Normal)</strong>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <button>Cancel Order</button>
-            </div>
+            </div> -->
             <hr>
         </div>
     </div>
