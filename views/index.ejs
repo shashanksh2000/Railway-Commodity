@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col">
               <label for="source">From</label>
-              <select name="sourcestation" id="source">
+              <select name="sourcestation" id="source" required>
                 <option value="NDLH">NDLH</option>
                 <option value="CDG">CDG</option>
                 <option value="UMB">UMB</option>
@@ -48,7 +48,7 @@
             </div>
             <div class="col">
               <label for="destination">To</label>
-              <select name="destinationstation" id="destination">
+              <select name="destinationstation" id="destination" required>
                 <option value="LKO">LKO</option>
                 <option value="BSR">BSR</option>
                 <option value="GHY">GHY</option>
@@ -58,11 +58,11 @@
           </div>
           <div class="col">
             <label for="date">Date</label>
-            <input class = "indexInput" type="date" id="traveldate" name="traveldate">
+            <input class = "indexInput" type="date" id="traveldate" name="traveldate" required>
         </div>
           <div class="col">
             <label for="source">Type of train</label>
-            <select name="type" id="type">
+            <select name="type" id="type" required>
               <option value="type1">Normal</option>
               <option value="type2">Express</option>
             </select>

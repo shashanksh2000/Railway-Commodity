@@ -45,6 +45,10 @@ app.get('/alltrains', (req, res)=>{
     res.render('alltrains', {allresults : results});
 })
 
+app.get('/booknow', (req, res)=>{
+    res.render('book-now');
+})
+
 app.get('/profile', (req, res)=>{
     res.render('profile');
 })
