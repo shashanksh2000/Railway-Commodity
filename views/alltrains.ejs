@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="all_trains.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://kit.fontawesome.com/97d24611fb.js" crossorigin="anonymous"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
     <title>All booking Options</title>
   </head>
   <body>
@@ -50,14 +50,15 @@
                       <input class = "indexInput" type="date" id="traveldate" name="traveldate">
                     </div>
                     <div>
-                      <button >Search</button>
+                      <button><i class="fas fa-search"></i></button>
                     </div>
             </form>
-        
         </div>
-        <div class="all_trains col row">
-            <div class="row">
-                <div class="col">Available Trains
+        <div>
+          <h2>Available Trains</h2>
+        </div>
+        <div class="all_trains col">
+            <div class="col">
                   <% for (var i=0; i< allresults.length ; i++) { %>
                   <div class= "col">
                     <div class ="train-upper">
@@ -78,12 +79,8 @@
                       </div>
                     </div>
                   </div>
+                  <hr>
                   <% } %>
-                  <!-- <% for (var i=0; i< allresults.length ; i++) { %>
-                    <div><%= allresults[i].service %></div>
-                    <% } %> -->
-                    <!-- <% console.log(allresults) %> -->
-                </div>
             </div>
         </div>
       </div>

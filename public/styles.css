@@ -6,14 +6,34 @@
     font-family: 'Montserrat';
 }
 
+body {
+    background-color: #121212;
+}
+
 a {
     text-decoration: none;
     color: white;
 }
 
+i {
+    cursor: pointer;
+}
+
+i:hover {
+    color:#2B8F8F;
+}
+
+form div button {
+    color: white;
+    border: none;
+    background: none;
+    font-size: 1em;
+}
+
 .buttons a{
     margin-right: 10px;
     border-radius: 3px;
+    text-transform: capitalize;
 }
 
 .navbar {
@@ -92,6 +112,10 @@ a {
     border-bottom: 2px solid #2B8F8F;
 }
 
+input:focus {
+    outline: none;
+}
+
 select {
     border: none;
     background-color: rgba(255, 255, 255, 0.16);
@@ -99,6 +123,10 @@ select {
     border-bottom: 2px solid #2B8F8F;
     margin: 5px 0px;
     color: white;
+}
+
+select:focus {
+    outline: none;
 }
 
 option {
