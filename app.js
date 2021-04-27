@@ -45,8 +45,9 @@ app.get('/alltrains', (req, res)=>{
     res.render('alltrains', {allresults : results});
 })
 
-app.get('/booknow', (req, res)=>{
-    res.render('book-now');
+app.get('/booknow/:id', (req, res)=>{
+    const id = req.params.id;
+    res.render('book-now', {train: results[id]});
 })
 
 app.get('/profile', (req, res)=>{
