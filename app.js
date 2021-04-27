@@ -7,6 +7,7 @@ const url = require('url');
 var user= null;
 var results = new Array();
 var myorders = new Array();
+var newTrain = {};
 var firebaseConfig = {
     apiKey: "AIzaSyBujDlmk_AaKWqMnMdPZoMOMgN3JatH2Go",
     authDomain: "railgoods.firebaseapp.com",
@@ -48,9 +49,24 @@ app.get('/alltrains', (req, res)=>{
     res.render('alltrains', {allresults : results});
 })
 
-app.get('/booknow/:id', (req, res)=>{
+app.get('/booknow/:id/:date/:cap/', async(req, res)=>{
     const id = req.params.id;
-    res.render('book-now', {train: results[id]});
+    const date = req.params.date; //Undefined value
+    const cap = req.params.cap;
+    let TrainsRef = db.collection('trains/trains/trainID');
+    let traininfo = await TrainsRef.get();
+    for(const train of traininfo.docs) {
+        console.log(train.id); //Id is not matching with train id change it
+        if(train.id == id) {
+            var data = train.data();
+            newtrain[trainid] = data.id;
+            newTrain[trainname] = data.name;
+            newTrain[bookingdate] = date;
+            newTrain[capacityleft] = cap;
+        }
+    }
+    console.log(newTrain);
+    res.render('book-now', {train: newTrain});
 })
 app.get('/profile', async(req, res)=>{
     if(user)
@@ -142,7 +158,7 @@ app.post('/search', async(req, res) =>{
                     remaining = remaining - book.data().amountbooked;
                 }
             }
-            var details = {  name: data.name ,service: data.service, source: data.source, destination : data.destination, cost : data.costperunit, departure : data.time, trainid : data.id, capacity: data.capacity, capacityleft: remaining };
+            var details = {  name: data.name ,service: data.service, source: data.source, destination : data.destination, cost : data.costperunit, departure : data.time, trainid : data.id, capacity: data.capacity, capacityleft: remaining, bookingdate: traveldate};
             //console.log(details);
             results.push(details);
 

@@ -73,9 +73,10 @@
                     <div class = "train-lower">
                       <div>
                         <%= allresults[i].source%> -> <%= allresults[i].destination%>
+                        <%= allresults[i].bookingdate%>
                       </div>
                       <div class ="navbar buttons">
-                        <button class="buttons"><a href="<%="/booknow/" + allresults[i].id + "/"%>">Book Now</a></button>
+                        <button class="buttons"><a href="<%="/booknow/" + allresults[i].trainid + "/" + allresults[i].bookingdate + "/" + allresults[i].capacityleft + "/"%>">Book Now</a></button>
                       </div>
                     </div>
                   </div>
