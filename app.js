@@ -2,8 +2,11 @@ const { request, response } = require('express');
 const express = require('express');
 const app = express();
 const firebase = require('firebase')
+const http = require('http');
+const url = require('url');
 var user= null;
 var results = new Array();
+var myorders = new Array();
 var firebaseConfig = {
     apiKey: "AIzaSyBujDlmk_AaKWqMnMdPZoMOMgN3JatH2Go",
     authDomain: "railgoods.firebaseapp.com",
@@ -49,9 +52,29 @@ app.get('/booknow/:id', (req, res)=>{
     const id = req.params.id;
     res.render('book-now', {train: results[id]});
 })
-
-app.get('/profile', (req, res)=>{
-    res.render('profile');
+app.get('/profile', async(req, res)=>{
+    if(user)
+    {
+        let myBookingRef = db.collection('orders');
+        let mybookings = await myBookingRef.get();
+        let TrainsRef = db.collection('trains/trains/trainID');
+        let traininfo = await TrainsRef.get();
+        myorders.length = 0;
+        for(const order of mybookings.docs)
+        {
+            if(user.username == order.data().bookinguser){
+                for(const info of traininfo.docs){
+                    if(order.data().trainid == info.data().id){
+                        var single = {amtbooked: order.data().amountbooked, netcost : (order.data().amountbooked * info.data().costperunit), trainname: info.data().name ,date : order.data().date, time : info.data().time , servtype : info.data().service}
+                        myorders.push(single);
+                    }
+                    
+                }
+            }
+        }
+        res.render('profile', {loggedInUser: user , orders : myorders });
+    }
+    console.log(myorders);
 })
 app.listen(4000, ()=>{
     console.log("server is running");
