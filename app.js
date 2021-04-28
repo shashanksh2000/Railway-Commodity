@@ -55,23 +55,13 @@ app.get('/booknow/:id/:date/:cap/', async(req, res)=>{
     const id = req.params.id;
     const date = req.params.date; 
     const cap = req.params.cap;
-    // if(user== null){
-    //     res.render('login');
-    // }
-    // console.log(id);
-    // console.log(date);
-    // console.log(cap);
     let TrainsRef = db.collection('trains/trains/trainID');
     let traininfo = await TrainsRef.get();
     for(const temp of traininfo.docs) {
         // console.log(temp.data().id); //Id is not matching with train id change it
         if(temp.data().id == id) {
             var data = temp.data();
-            // newtrain[trainid] = temp.data().id;
-            // newtrain[trainname] = temp.data().name;
-            // newtrain[bookingdate] = date;
-            // newtrain[capacityleft] = cap;
-             var mytrain= {trainid: temp.data().id, trainname: temp.data().name, bookingdate: date, capacityleft: cap};
+            var mytrain= {trainid: temp.data().id, trainname: temp.data().name, bookingdate: date, capacityleft: cap};
         }
     }
     // console.log(mytrain);

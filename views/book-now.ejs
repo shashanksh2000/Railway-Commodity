@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="booking.css" />
+    <link rel="stylesheet" href="/booking.css">
     <title>Confirm</title>
   </head>
   <body>
@@ -19,13 +19,29 @@
         <h2>Confirm Booking</h2>
         <form action="<%= "/confirm/" + train.trainid +"/" + train.bookingdate + "/"  %> " method="POST">
           <div class="row">
-            <div class="col">Train Name: <span><%= train.trainname%></span></div>
-            <div class="col">Train ID: <span><%=train.trainid%></span></div>
+            <div class="col">Train Name:</div>
+            <div class="col"><%= train.trainname%></div>
           </div>
-          <div class="col">Date: <span><%=train.bookingdate%></span></div>
-          <div class="col">
-            <label for="amount">Amount: </label>
+          <div class="row">
+            <div class="col">Train ID:</div>
+            <div class="col"><%=train.trainid%></div>
+          </div>
+          <div class="row">
+            <div class="col">Date:</div>
+            <div class="col"><%=train.bookingdate%></div>
+          </div>
+          <div class="row">
+            <div class="col">Amount:</div>
+            <div class="col">
             <input type="text" name="amount" id="amount" placeholder="in Units" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">Available Space:</div>
+            <div class="col">34</div>
+          </div>
+          <div class="row">
+            <a href="javascript:history.back()"class="cancel">Go Back</a><button>Book Now</button>
           </div>
           <div class="col">Available Space: <span><%= train.capacityleft%></span></div>
           <!-- <button class="cancel"><a href= "/">Go Back</a></button> -->
