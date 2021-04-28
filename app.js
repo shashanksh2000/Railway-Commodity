@@ -92,8 +92,16 @@ app.get('/profile', async(req, res)=>{
     console.log(myorders);
 })
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("YelpCamp server has started!");
+//Use for development
+
+// app.listen(4000, ()=>{
+//     console.log("server is running");
+// });
+
+//Use for production
+
+app.listen(process.env.PORT, process.env.IP, () =>{
+    console.log("Railway server has started!");
 });
 
 app.post('/login', async(req, res) =>{
