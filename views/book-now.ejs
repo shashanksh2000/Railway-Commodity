@@ -19,10 +19,10 @@
         <h2>Confirm Booking</h2>
         <form action="/book" method="POST">
           <div class="row">
-            <div class="col">Train Name: <span>ABC</span></div>
-            <div class="col">Train ID: <span>1234</span></div>
+            <div class="col">Train Name: <span><%= train.trainname%></span></div>
+            <div class="col">Train ID: <span><%=train.trainid%></span></div>
           </div>
-          <div class="col">Date: <span>18-04-2021</span></div>
+          <div class="col">Date: <span><%=train.bookingdate></span></div>
           <div class="col">
             <label for="amount">Amount: </label>
             <input type="text" name="amount" id="amount" placeholder="in Units" required/>

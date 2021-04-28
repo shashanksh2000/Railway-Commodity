@@ -7,7 +7,7 @@ const url = require('url');
 var user= null;
 var results = new Array();
 var myorders = new Array();
-var newTrain = {};
+var newtrain = {};
 var firebaseConfig = {
     apiKey: "AIzaSyBujDlmk_AaKWqMnMdPZoMOMgN3JatH2Go",
     authDomain: "railgoods.firebaseapp.com",
@@ -53,23 +53,27 @@ app.get('/booknow/:id/:date/:cap/', async(req, res)=>{
     const id = req.params.id;
     const date = req.params.date; //Undefined value
     const cap = req.params.cap;
-    if(user== null){
-        res.render('login');
-    }
+    // if(user== null){
+    //     res.render('login');
+    // }
+    // console.log(id);
+    // console.log(date);
+    // console.log(cap);
     let TrainsRef = db.collection('trains/trains/trainID');
     let traininfo = await TrainsRef.get();
-    for(const train of traininfo.docs) {
-        console.log(train.id); //Id is not matching with train id change it
-        if(train.id == id) {
-            var data = train.data();
-            newtrain[trainid] = data.id;
-            newTrain[trainname] = data.name;
-            newTrain[bookingdate] = date;
-            newTrain[capacityleft] = cap;
+    for(const temp of traininfo.docs) {
+        console.log(temp.data().id); //Id is not matching with train id change it
+        if(temp.data().id == id) {
+            var data = temp.data();
+            // newtrain[trainid] = temp.data().id;
+            // newtrain[trainname] = temp.data().name;
+            // newtrain[bookingdate] = date;
+            // newtrain[capacityleft] = cap;
+             var mytrain= {trainid: temp.data().id, trainname: temp.data().name, bookingdate: date, capacityleft: cap};
         }
     }
-    console.log(newTrain);
-    res.render('book-now', {train: newTrain});
+    // console.log(mytrain);
+    res.render('book-now', {train: mytrain});
 })
 app.get('/profile', async(req, res)=>{
     if(user)
