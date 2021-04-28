@@ -19,17 +19,29 @@
         <h2>Confirm Booking</h2>
         <form action="/book" method="POST">
           <div class="row">
-            <div class="col">Train Name: <%= train.trainname%></div>
-            <div class="col">Train ID: <%=train.trainid%></div>
+            <div class="col">Train Name:</div>
+            <div class="col"><%= train.trainname%></div>
           </div>
-          <div class="col">Date: <%=train.bookingdate%></div>
-          <div class="col">
-            <label for="amount">Amount: </label>
-            <input type="text" name="amount" id="amount" placeholder="in Units" required/>
-          </div>
-          <div class="col">Available Space: <span>34</span></div>
           <div class="row">
-            <button class="cancel">Go Back</button><button>Book Now</button>
+            <div class="col">Train ID:</div>
+            <div class="col"><%=train.trainid%></div>
+          </div>
+          <div class="row">
+            <div class="col">Date:</div>
+            <div class="col"><%=train.bookingdate%></div>
+          </div>
+          <div class="row">
+            <div class="col">Amount:</div>
+            <div class="col">
+            <input type="text" name="amount" id="amount" placeholder="in Units" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">Available Space:</div>
+            <div class="col">34</div>
+          </div>
+          <div class="row">
+            <a href="javascript:history.back()"class="cancel">Go Back</a><button>Book Now</button>
           </div>
         </form>
       </div>
