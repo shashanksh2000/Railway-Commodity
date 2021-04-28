@@ -4,6 +4,8 @@ const app = express();
 const firebase = require('firebase')
 const http = require('http');
 const url = require('url');
+const maximum = 10000;
+const minimum = 1;
 var user= null;
 var results = new Array();
 var myorders = new Array();
@@ -51,7 +53,7 @@ app.get('/alltrains', (req, res)=>{
 
 app.get('/booknow/:id/:date/:cap/', async(req, res)=>{
     const id = req.params.id;
-    const date = req.params.date; //Undefined value
+    const date = req.params.date; 
     const cap = req.params.cap;
     // if(user== null){
     //     res.render('login');
@@ -62,7 +64,7 @@ app.get('/booknow/:id/:date/:cap/', async(req, res)=>{
     let TrainsRef = db.collection('trains/trains/trainID');
     let traininfo = await TrainsRef.get();
     for(const temp of traininfo.docs) {
-        console.log(temp.data().id); //Id is not matching with train id change it
+        // console.log(temp.data().id); //Id is not matching with train id change it
         if(temp.data().id == id) {
             var data = temp.data();
             // newtrain[trainid] = temp.data().id;
@@ -172,4 +174,19 @@ app.post('/search', async(req, res) =>{
         }
     };
     res.redirect('/alltrains');
+})
+app.post('/confirm/:id/:date/', async(req, res)=>{
+    let amtbooked = req.body.amount;
+    // let amtbooked = rq.params.amtbooked;
+    let trainid = req.params.id;
+    let date = req.params.date;
+    let newDoc= db.collection('orders').add({
+        amountbooked: amtbooked, 
+        bookinguser: user.username,
+        date : date,
+        orderid: Math.floor(Math.random() * (maximum - minimum + 1)) + minimum,
+        trainid: trainid
+    });
+    console.log("booking done successfully!");
+    res.redirect('/profile');
 })

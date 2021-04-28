@@ -11,13 +11,13 @@
     <div class="container">
       <div class="navbar">
         <h2 class="Home">
-          <a href="/index.html">RailGoods</a>
+          <a href="/">RailGoods</a>
         </h2>
       </div>
 
       <div class="confirm">
         <h2>Confirm Booking</h2>
-        <form action="/book" method="POST">
+        <form action="<%= "/confirm/" + train.trainid +"/" + train.bookingdate + "/"  %> " method="POST">
           <div class="row">
             <div class="col">Train Name: <span><%= train.trainname%></span></div>
             <div class="col">Train ID: <span><%=train.trainid%></span></div>
@@ -27,8 +27,9 @@
             <label for="amount">Amount: </label>
             <input type="text" name="amount" id="amount" placeholder="in Units" required/>
           </div>
-          <div class="col">Available Space: <span>34</span></div>
-          <button class="cancel">Go Back</button><button>Book Now</button>
+          <div class="col">Available Space: <span><%= train.capacityleft%></span></div>
+          <!-- <button class="cancel"><a href= "/">Go Back</a></button> -->
+          <button >Confirm</button>
         </form>
       </div>
     </div>
