@@ -80,7 +80,7 @@ app.get('/profile', async(req, res)=>{
             if(user.username == order.data().bookinguser){
                 for(const info of traininfo.docs){
                     if(order.data().trainid == info.data().id){
-                        var single = {amtbooked: order.data().amountbooked, netcost : (order.data().amountbooked * info.data().costperunit), trainname: info.data().name ,date : order.data().date, time : info.data().time , servtype : info.data().service}
+                        var single = {amtbooked: order.data().amountbooked, netcost : (order.data().amountbooked * info.data().costperunit), trainname: info.data().name ,date : order.data().date, time : info.data().time , servtype : info.data().service, orderid: order.data().orderid}
                         myorders.push(single);
                     }
                     
@@ -180,3 +180,31 @@ app.post('/confirm/:id/:date/', async(req, res)=>{
     console.log("booking done successfully!");
     res.redirect('/profile');
 })
+app.get('/cancelorder/:orderID/', (req,res)=>{
+    // let ID= req.params.orderID
+    // var delquery = db.collection('orders').where('orderid', '==', 'orderID');
+    // delquery.get().then(function(querySnapshot){
+    //     querySnapshot.forEach(function(doc) {
+    //         doc.ref.delete();
+    //         console.log("deleted")
+    //     });
+    // });
+    // var delquery = db.collection('orders').where('orderid', '==', 'orderID').delete();
+//     let fs = firebase.firestore();
+// let collectionRef = fs.collection('orders');
+
+// collectionRef.where("orderid", "==", ID)
+// .get()
+// .then(querySnapshot => {
+//   querySnapshot.forEach((doc) => {
+//     doc.ref.delete().then(() => {
+//       console.log("Document successfully deleted!");
+//     }).catch(function(error) {
+//       console.error("Error removing document: ", error);
+//     });
+//   });
+// })
+// .catch(function(error) {
+//   console.log("Error getting documents: ", error);
+// });
+});
