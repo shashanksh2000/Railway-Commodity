@@ -4,13 +4,14 @@
   "description": "Software engineering project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shashanksh2000/Railway-Commodity.git"
   },
-  "author": "sabhya19",
+  "author": "shashank, sabhya19",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shashanksh2000/Railway-Commodity/issues"
