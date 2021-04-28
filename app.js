@@ -46,13 +46,16 @@ app.get('/logout', (req,res)=>{
 })
 
 app.get('/alltrains', (req, res)=>{
-    res.render('alltrains', {allresults : results});
+    res.render('alltrains', {allresults : results, loggedInUser: user});
 })
 
 app.get('/booknow/:id/:date/:cap/', async(req, res)=>{
     const id = req.params.id;
     const date = req.params.date; //Undefined value
     const cap = req.params.cap;
+    if(user== null){
+        res.render('login');
+    }
     let TrainsRef = db.collection('trains/trains/trainID');
     let traininfo = await TrainsRef.get();
     for(const train of traininfo.docs) {

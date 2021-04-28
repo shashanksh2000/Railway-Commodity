@@ -17,14 +17,20 @@
       <div class="container">
 
         <div class="navbar">
-            <h2 class="Home">
-              <a href="/">RailGoods</a> 
-            </h2>
-            <div class="buttons">
-              <!-- <a href="#">Check PNR Status</a> -->
-              <a href="/login">Login</a>
-              <button class="button"><a href="/signup">Sign up</a></button>
-            </div>
+          <h2 class="Home">
+            <a href="/">RailGoods</a> 
+          </h2>
+          <div class="buttons">
+            <!-- <a href="#">Check PNR Status</a> -->
+            <%if(!loggedInUser){ %>
+            <a href="/login">Login</a>
+            <button class="buttons"><a href="/signup">SignUp</a></button>
+            <% }%>
+            <% if(loggedInUser){%>
+            <button class="buttons"> <a href="/profile"><%= loggedInUser.username %>'s Profile</a></button>
+            <a href="/logout">Logout</a>
+            <% }%>
+          </div>
         </div>
         <div class="search-bar">
             <form action="/search" method= "POST" class="row">
@@ -76,7 +82,12 @@
                         <%= allresults[i].bookingdate%>
                       </div>
                       <div class ="navbar buttons">
-                        <button class="buttons"><a href="<%="/booknow/" + allresults[i].trainid + "/" + allresults[i].bookingdate + "/" + allresults[i].capacityleft + "/"%>">Book Now</a></button>
+                        <% if(!loggedInUser){ %>
+                          <button class="buttons"><a href="/login">Login and Book</a></button>
+                        <% }%>
+                        <%if(loggedInUser){ %>
+                          <button class="buttons"><a href= " <%= "/booknow/" + allresults[i].trainid + "/" + allresults[i].bookingdate + "/" + allresults[i].capacityleft + "/" %>">Book Now</a></button>
+                        <% }%>
                       </div>
                     </div>
                   </div>
