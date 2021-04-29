@@ -10,6 +10,9 @@ var user= null;
 var results = new Array();
 var myorders = new Array();
 var newtrain = {};
+var docid ;
+// npm i ;alert ;
+// let alert = require('alert');
 var firebaseConfig = {
     apiKey: "AIzaSyBujDlmk_AaKWqMnMdPZoMOMgN3JatH2Go",
     authDomain: "railgoods.firebaseapp.com",
@@ -89,20 +92,20 @@ app.get('/profile', async(req, res)=>{
         }
         res.render('profile', {loggedInUser: user , orders : myorders });
     }
-    console.log(myorders);
+    // console.log(myorders);
 })
 
 //Use for development
 
-// app.listen(4000, ()=>{
-//     console.log("server is running");
-// });
+app.listen(4000, ()=>{
+    console.log("server is running");
+});
 
 //Use for production
 
-app.listen(process.env.PORT, process.env.IP, () =>{
-    console.log("Railway server has started!");
-});
+// app.listen(process.env.PORT, process.env.IP, () =>{
+//     console.log("Railway server has started!");
+// });
 
 app.post('/login', async(req, res) =>{
     let loginUsername = req.body.loginUsername;
@@ -174,11 +177,17 @@ app.post('/search', async(req, res) =>{
     };
     res.redirect('/alltrains');
 })
-app.post('/confirm/:id/:date/', async(req, res)=>{
+app.post('/confirm/:id/:date/:cap/', async(req, res)=>{
     let amtbooked = req.body.amount;
     // let amtbooked = rq.params.amtbooked;
     let trainid = req.params.id;
     let date = req.params.date;
+    let capleft = req.params.cap;
+    if(capleft < amtbooked)
+    {
+        // alert("message");
+        // popup.alert({content : "Sorry! Not enough space. Please try with a lesser amount or some other date:)"});
+    }
     let newDoc= db.collection('orders').add({
         amountbooked: amtbooked, 
         bookinguser: user.username,
@@ -189,31 +198,23 @@ app.post('/confirm/:id/:date/', async(req, res)=>{
     console.log("booking done successfully!");
     res.redirect('/profile');
 })
-app.get('/cancelorder/:orderID/', (req,res)=>{
-    // let ID= req.params.orderID
-    // var delquery = db.collection('orders').where('orderid', '==', 'orderID');
-    // delquery.get().then(function(querySnapshot){
-    //     querySnapshot.forEach(function(doc) {
-    //         doc.ref.delete();
-    //         console.log("deleted")
-    //     });
-    // });
-    // var delquery = db.collection('orders').where('orderid', '==', 'orderID').delete();
-//     let fs = firebase.firestore();
-// let collectionRef = fs.collection('orders');
-
-// collectionRef.where("orderid", "==", ID)
-// .get()
-// .then(querySnapshot => {
-//   querySnapshot.forEach((doc) => {
-//     doc.ref.delete().then(() => {
-//       console.log("Document successfully deleted!");
-//     }).catch(function(error) {
-//       console.error("Error removing document: ", error);
-//     });
-//   });
-// })
-// .catch(function(error) {
-//   console.log("Error getting documents: ", error);
-// });
+app.get('/cancelorder/:orderID/', async(req,res)=>{
+    let ID= req.params.orderID;
+    // console.log(ID);
+    let orderRef = db.collection('orders');
+    let alldocs = await orderRef.get();
+    for(const mydoc of alldocs.docs){
+        if(ID == mydoc.data().orderid){
+            // console.log("true");
+            docid= mydoc.id;
+            // break;
+        }
+    }
+    // console.log(docid);
+    db.collection('orders').doc(docid).delete().then(()=>{
+        console.log("deletion successful");
+    }).catch((err)=>{
+        console.log("err");
+    });
+    res.redirect('/profile');
 });

@@ -38,7 +38,7 @@
                         <p class="col">Total paid: Rs. <%= orders[i].netcost%></p>
                     </div>
                 </div>
-                <button>Cancel Order</button>
+                <button ><a href="<%= "/cancelorder/" + orders[i].orderid + "/" %>">Cancel Order</a></button>
             </div>
             <%}%>
             <!-- <div class="order">

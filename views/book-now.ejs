@@ -17,7 +17,7 @@
 
       <div class="confirm">
         <h2>Confirm Booking</h2>
-        <form action="<%= "/confirm/" + train.trainid +"/" + train.bookingdate + "/"  %> " method="POST">
+        <form action="<%= "/confirm/" + train.trainid +"/" + train.bookingdate + "/" + train.capacityleft + "/"  %> " method="POST">
           <div class="row">
             <div class="col">Train Name:</div>
             <div class="col"><%= train.trainname%></div>
