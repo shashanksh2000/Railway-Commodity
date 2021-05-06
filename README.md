@@ -26,10 +26,10 @@ or normal service etc.
 - Booking confirmation
 - Cancellation of an existing booking and confirmation
 
-# Report 
+## Report 
 [Click Here](https://github.com/shashanksh2000/Railway-Commodity/blob/main/Software-Lab-Project-Report.pdf)
 
-# Working
+## Working
 1. Fork this project
 2. Install Node from [here](https://nodejs.org/en/download/)(Optional)
 3. Run following commands
@@ -39,12 +39,15 @@ or normal service etc.
  ```
 4. Check http://localhost:4000/
 
-# Details:
+## Production link
+Fing our working project on https://railwaycommoditysystem.herokuapp.com/
+
+## Details:
 - Course: **CSD-327 Software Engineering LAB**
 - Date: **6th May 2021**
 - Submitted to: **Dr. Dharmendra Prasad Mahto**
 
-# Contributors:
+## Contributors:
 - Gitanjali(185063)
 - Shashank Sharma(185077)
 - Piyush Chauhan(185097)
