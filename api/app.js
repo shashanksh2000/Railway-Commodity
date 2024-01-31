@@ -97,9 +97,9 @@ app.get('/profile', async(req, res)=>{
 
 //Use for development
 
-// app.listen(4000, ()=>{
-//     console.log("server is running");
-// });
+//app.listen(4000, ()=>{
+//    console.log("server is running");
+//});
 
 //Use for production
 
