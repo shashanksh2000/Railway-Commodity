@@ -4,7 +4,7 @@
   "description": "Software engineering project",
   "main": "index.js",
   "engines": {
-    "node": "12.x"
+    "node": "18.x"
   },
   "scripts": {
     "start": "node index.js",
