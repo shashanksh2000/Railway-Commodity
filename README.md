@@ -40,7 +40,7 @@ or normal service etc.
 4. Check http://localhost:4000/
 
 ## Production link
-Fing our working project on https://railwaycommoditysystem.herokuapp.com/
+Fing our working project on https://railway-commodity.vercel.app/
 
 ## Details:
 - Course: **CSD-327 Software Engineering LAB**
