@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const express = require('express');
+const path = require('path')
 const app = express();
 const firebase = require('firebase')
 const http = require('http');
@@ -24,6 +25,7 @@ var firebaseConfig = {
 
 const firebaseApp = firebase.default.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore(); //database
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
@@ -95,6 +97,8 @@ app.get('/profile', async(req, res)=>{
     // console.log(myorders);
 })
 
+
+const port = process.env.PORT || 4000;
 //Use for development
 
 //app.listen(4000, ()=>{
@@ -102,10 +106,7 @@ app.get('/profile', async(req, res)=>{
 //});
 
 //Use for production
-
-app.listen(process.env.PORT, process.env.IP, () =>{
-    console.log("Railway server has started!");
-});
+app.listen(port);
 
 app.post('/login', async(req, res) =>{
     let loginUsername = req.body.loginUsername;
